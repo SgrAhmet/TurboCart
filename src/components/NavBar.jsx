@@ -10,8 +10,10 @@ const NavBar = () => {
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="">Home</Nav.Link>
+            <Nav.Link href="">
             <NavLink to="/product-list">Product List</NavLink>
+
+            </Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
