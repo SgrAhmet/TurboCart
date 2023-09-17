@@ -62,7 +62,9 @@ const AppRouter = () => {
           <Route path="" element={<Outlet />}>
             <Route path="/" element={<Main />} />
             <Route path="new-product" element={<NewProduct />} />
+            
             <Route path="product-list" element={<ProductList />} />
+
             <Route path="update-product" element={<UpdateProduct />} />
             <Route path="*" element={<NotFound />} />
           </Route>
