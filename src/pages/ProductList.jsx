@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const ProductList = () => {
   const [product, setProduct] = useState([]);
+  let subtotal = 0
+  
 
   const BASE_URL = "https://6505bec6ef808d3c66f06628.mockapi.io/products";
 
@@ -17,6 +20,11 @@ const ProductList = () => {
   };
 
   const handleDec = (id, quantity) => {
+   
+    
+    if(quantity == 1){
+        handleRemove(id)
+    }
     axios
       .put(`${BASE_URL}/${id}`, {
         quantity: quantity - 1,
@@ -61,8 +69,13 @@ const ProductList = () => {
         <div>
           {product.map((item, i) => {
             const { name, price, quantity, image, id } = item;
+            // subtotal = subtotal + (Number(price)*Number(quantity)) )
+            subtotal += price * quantity
+            
             return (
+              
               <Card
+                key={id}
                 style={{ width: "18rem" }}
                 className="p-3 border border-dark"
               >
@@ -105,22 +118,22 @@ const ProductList = () => {
             
             <div className="myDivs" >
               <p>Subtotal</p>
-              <p><i>$</i>50</p>
+              <p><i>$</i>{subtotal}</p>
             </div>
 
             <div className="myDivs" >
               <p>Tax(18%)</p>
-              <p><i>$</i>50</p>
+              <p><i>$</i>{(subtotal * 0.18).toFixed(2)}</p>
 
             </div>
             <div className="myDivs" >
               <p>Shipping</p>
-              <p><i>$</i>50</p>
+              <p><i>$</i>20</p>
 
             </div>
             <div className="myDivs" >
               <p>Total</p>
-              <p><i>$</i>50</p>
+              <p><i>$</i>{(subtotal + subtotal* 0.18+20).toFixed(2)}</p>
 
             </div>
           </div>
