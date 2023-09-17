@@ -5,7 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 
 const NavBar = () => {
   return (
-    <>
+    <div >
+      {/* className="position-fixed fixed-top" */}
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand href="/">Turbo-Cart</Navbar.Brand>
@@ -18,7 +19,7 @@ const NavBar = () => {
           </Nav>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 

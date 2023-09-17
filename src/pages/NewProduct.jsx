@@ -1,8 +1,11 @@
 import React from 'react'
+import ProductForm from '../components/ProductForm'
 
 const NewProduct = () => {
   return (
-    <div>NewProduct</div>
+    <div className='d-flex justify-content-center mt-5'>
+      <ProductForm/>
+    </div>
   )
 }
 
